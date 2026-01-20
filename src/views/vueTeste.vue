@@ -21,7 +21,7 @@ const apiAssociatementorMentoree = async () => {
   //loading.value = true
 
   const response = await apiGet(
-    'http://localhost:8000/api/v1/mentoree/mentorsAssocie'
+    'https://mentormap.projet.sbs/public/api/v1/mentoree/mentorsAssocie'
   )
   associatementorMentoree.value = response
   console.log('associatementorMentoree.value: ', associatementorMentoree.value)

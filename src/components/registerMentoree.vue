@@ -19,7 +19,7 @@ const emailConnect = ref()
 const passwordConnect = ref()
 
 const apiRegisterMentoree = async () => {
-  const response = await apiPost('http://localhost:8000/api/v1/mentoree/register', {
+  const response = await apiPost('https://mentormap.projet.sbs/public/api/v1/mentoree/register', {
     name: fullName.value,
     email: email.value,
     telephone: telephone.value,
@@ -45,7 +45,7 @@ const getInfo = () => {
 }
 
 const connectMentoree = async () => {
-  const response = await apiPost('http://localhost:8000/api/v1/mentoree/login', {
+  const response = await apiPost('https://mentormap.projet.sbs/public/api/v1/mentoree/login', {
     email: emailConnect.value,
     password: passwordConnect.value,
   })

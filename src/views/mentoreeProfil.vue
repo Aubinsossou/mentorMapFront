@@ -16,14 +16,14 @@ const adresse = ref()
 
 /* Les domaines  */
 const apiGetDomaine = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/domaine/index')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/domaine/index')
   domaine.value = response
   console.log('domaine.value: ', domaine.value)
 }
 
 /* check mentoree  */
 const checkMentoree = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/mentoree/getmentoree')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/mentoree/getmentoree')
   mentoree.value = response
   console.log('mentoree.value: ', mentoree.value)
 }
@@ -73,7 +73,7 @@ const displayCArte = async () => {
 /* Liste mentor  */
 
 const apiGetMentors = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/mentor/listmentor')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/mentor/listmentor')
   listMentor.value = response
 
   listMentor.value.data.forEach((coordonnee) => {
@@ -100,7 +100,7 @@ const apiGetMentors = async () => {
 }
 
 const logout = () => {
-  const response = apiDelete('http://localhost:8000/api/v1/mentoree/logout')
+  const response = apiDelete('https://mentormap.projet.sbs/public/api/v1/mentoree/logout')
   userLogout.value = response
   console.log('userLogout.value: ', userLogout.value)
 

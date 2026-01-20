@@ -19,7 +19,7 @@ const demandeOfMentor = ref()
 
 const checkIdMentor = async () => {
   loading.value = true
-  const response = await apiGet('http://localhost:8000/api/v1/mentor/showmentor/' + id.value)
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/mentor/showmentor/' + id.value)
   mentors.value = response
   console.log('mentor.value: ', mentors.value)
   loading.value = false
@@ -28,7 +28,7 @@ const checkIdMentor = async () => {
 const checkMentoree = async () => {
   loading.value = true
 
-  const response = await apiGet('http://localhost:8000/api/v1/mentoree/getmentoree')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/mentoree/getmentoree')
   mentoree.value = response.data
   console.log('mentoree.value: ', mentoree.value)
   loading.value = false
@@ -37,7 +37,7 @@ const checkMentoree = async () => {
 const demandeMentor = (id) => {
   loading.value = true
 
-  const response = apiPost('http://localhost:8000/api/v1/mentoree/demandementor', {
+  const response = apiPost('https://mentormap.projet.sbs/public/api/v1/mentoree/demandementor', {
     mentors_id: id,
     mentoree_id: mentoree.value.id,
   })
@@ -76,7 +76,7 @@ const associate = async () => {
   loading.value = true
 
   const response = await apiGet(
-    'http://localhost:8000/api/v1/mentoree/associatementor/' + mentors.value.data.id,
+    'https://mentormap.projet.sbs/public/api/v1/mentoree/associatementor/' + mentors.value.data.id,
   )
   dejaAssociate.value = response
   console.log('dejaAssociate.value: ', dejaAssociate.value)

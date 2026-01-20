@@ -28,7 +28,7 @@ let map = ref(null)
 let marker = ref(null)
 
 const apiRegisterMentor = async () => {
-  const response = await apiPost('http://localhost:8000/api/v1/mentor/register', {
+  const response = await apiPost('https://mentormap.projet.sbs/public/api/v1/mentor/register', {
     name: fullName.value,
     email: email.value,
     telephone: telephone.value,
@@ -147,7 +147,7 @@ async function rechercherAdresse() {
 }
 
 const apiGetDomaineMentor = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/domaine/index')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/domaine/index')
   getDomaineMentor.value = response
   console.log(' getDomaineMentor.value: ', getDomaineMentor.value)
 }
@@ -173,7 +173,7 @@ const getInfo = () => {
 }
 
 const connect = async () => {
-  const response = await apiPost('http://localhost:8000/api/v1/mentor/login', {
+  const response = await apiPost('https://mentormap.projet.sbs/public/api/v1/mentor/login', {
     email: emailConnect.value,
     password: passwordConnect.value,
   })

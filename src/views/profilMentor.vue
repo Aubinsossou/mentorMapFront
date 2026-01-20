@@ -20,14 +20,14 @@ const getDemandeMentoree = ref()
 
 const getMentor = async () => {
    loading.value = true
-  const response = await apiGet('http://localhost:8000/api/v1/mentor/getMentor')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/mentor/getMentor')
   mentorConnect.value = response
   console.log('mentorConnect.value: ', mentorConnect.value)
    loading.value = false
 }
 
 const apiGetDomaine = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/domaine/index')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/domaine/index')
   domaineList.value = response
   console.log('domaineList.value: ', domaineList.value)
 }
@@ -37,7 +37,7 @@ const modifyProliMentor = () => {
 }
 
 const logout = () => {
-  const response = apiDelete('http://localhost:8000/api/v1/mentor/logout')
+  const response = apiDelete('https://mentormap.projet.sbs/public/api/v1/mentor/logout')
   userLogout.value = response
   console.log('userLogout.value: ', userLogout.value)
 
@@ -49,7 +49,7 @@ const logout = () => {
 
 const apiGetDemandeMentor = async () => {
   const response = await apiGet(
-    'http://localhost:8000/api/v1/mentor/getdemandementor/' + mentorConnect.value.data.id,
+    'https://mentormap.projet.sbs/public/api/v1/mentor/getdemandementor/' + mentorConnect.value.data.id,
   )
   getDemandeMentoree.value = response
 }
@@ -105,7 +105,7 @@ const storeDomaineMentor = ref()
 const demandeMentoreeRefuser = ref()
 
 const apiListDomaine = async () => {
-  const response = await apiGet('http://localhost:8000/api/v1/domaine/index')
+  const response = await apiGet('https://mentormap.projet.sbs/public/api/v1/domaine/index')
   listDomaine.value = response
   console.log('listDomaine.value: ', listDomaine.value)
 }
@@ -215,7 +215,7 @@ const apiStoreDomaineMentor = async () => {
       langage_id: element,
     })
   })
-  const response = await apiPost('http://localhost:8000/api/v1/mentor/store/domainelangage', {
+  const response = await apiPost('https://mentormap.projet.sbs/public/api/v1/mentor/store/domainelangage', {
     listDomaineMentor: listChoiceDomaine.value,
     listLangageMentor: listChoiceLangages.value,
   })
@@ -227,7 +227,7 @@ const apiStoreDomaineMentor = async () => {
 /* Modifier info mentor */
 
 const apiUpdateMentor = async () => {
-  const response = await apiPut('http://localhost:8000/api/v1/mentor/update', {
+  const response = await apiPut('https://mentormap.projet.sbs/public/api/v1/mentor/update', {
     name: mentorConnect.value.data.name,
     email: mentorConnect.value.data.email,
     telephone: mentorConnect.value.data.telephone,
@@ -246,7 +246,7 @@ const apiUpdateMentor = async () => {
 /*Accepter demande de mentoree */
 
 const apiDemandeMentoreeAccepte = async (id) => {
-  const response = await apiPut('http://localhost:8000/api/v1/mentor/acceptedemande/' + id)
+  const response = await apiPut('https://mentormap.projet.sbs/public/api/v1/mentor/acceptedemande/' + id)
   demandeMentoreeAccepte.value = response
   location.reload()
 }
@@ -254,7 +254,7 @@ const apiDemandeMentoreeAccepte = async (id) => {
 /*Refuser demande de mentoree */
 
 const apiRefuserDemandeMentoree = async (id) => {
-  const response = await apiPut('http://localhost:8000/api/v1/mentor/refuseredemande/' + id)
+  const response = await apiPut('https://mentormap.projet.sbs/public/api/v1/mentor/refuseredemande/' + id)
   demandeMentoreeRefuser.value = response
   location.reload()
 }
